@@ -12,7 +12,8 @@
  To generate the .gitignore file code
  url:- https://mrkandreev.name/snippets/gitignore-generator/
 
-   "type": "module" Added in packet.json :- To use the import(statement) library instead of require(when we need packages to use)
+   # "type": "module" Added in packet.json :-
+    To use the import(statement) library instead of require(when we need packages to use)
   
   when we make chanes in env file then we need to restart the server again 
   
