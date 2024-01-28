@@ -32,3 +32,13 @@
 Always write code in try and catch block
 
 devDependencies:- means only used in development on production this will not use
+
+
+# access token and Refresh Token
+acces token expiry is less as compare to refresh token mostly we put the refresh token expiry for more time as compare to access token
+
+* we will store the refresh token in the db but not store the access token in Db
+
+* access and refresh token creates in same way but the major difference is that in refresh token the expiry time is much and we add only id in payload instead of user detail
+
+
