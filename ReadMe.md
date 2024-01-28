@@ -42,3 +42,15 @@ acces token expiry is less as compare to refresh token mostly we put the refresh
 * access and refresh token creates in same way but the major difference is that in refresh token the expiry time is much and we add only id in payload instead of user detail
 
 
+# Topic: - Upload file in backend
+* Always use file upload functionality as utility so that we can use that utility wherever we needed file upload functionality
+* cloudnairy is used to upload file and this returns us the url which we will store in the DB
+* We need two package for file uploading in express js
+1. multer 
+2. express file upload
+
+install cloudnairy 
+install multer
+
+cloudnairy url:- 
+https://cloudinary.com/users/register_free
