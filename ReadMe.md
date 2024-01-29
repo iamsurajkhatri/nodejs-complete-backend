@@ -54,3 +54,50 @@ install multer
 
 cloudnairy url:- 
 https://cloudinary.com/users/register_free
+
+# Topic : http crash course
+Http vs https:- in http data is send in plain text but in https data is sent in encrypted form
+HTTP:- Hyper text transer protocol
+url:- uniform resource locator (location )
+urI:- uniform resource indentifier 
+Https headers:- key-value sent along with request and response
+used for :- caching, authentication , manage state:- x prefix(depricated)
+Request headers:- from client
+Response headrs:- from server
+payload headrs:- data
+
+
+most common headers:
+Accept: application/json:- what kind of data is accepting
+user-agent:- where request come from which browser etc(mobile browser)
+authorization:- from frontend(where authorization token is sent)
+
+# Http methods
+GET, POST , DELETE
+
+PUT:- Repalce a resource
+PATCH:- Change a part of resource
+
+
+# http status codes
+1**  informational
+2**   Success
+3**   Redirection
+4**   client error
+5**    server error
+
+
+100    continue 
+102   processing
+200   ok
+201   created
+202   accepted
+307   tempraroy redirect
+308   permanent redirect
+400   bad request
+401   unauthirized
+402   payment required
+404   not found
+500   internal server error
+504   Gatway time out
+
