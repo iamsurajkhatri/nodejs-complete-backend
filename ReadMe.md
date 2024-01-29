@@ -101,3 +101,8 @@ PATCH:- Change a part of resource
 500   internal server error
 504   Gatway time out
 
+# Router and controller with debugging
+
+
+# thunder clinet 
+vs code extension to hit the api's

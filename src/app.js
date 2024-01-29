@@ -13,4 +13,11 @@ app.use(express.urlencoded({extended:true}));
 app.use(express.static("public"))
 //to set the cookie and read the cookie
 app.use(cookieParser())
-export { app }
+
+//routes import 
+import userRoutes from './routes/user.routes.js';
+
+//routes declartion
+app.use('/api/v1/users', userRoutes)
+
+export { app }  
