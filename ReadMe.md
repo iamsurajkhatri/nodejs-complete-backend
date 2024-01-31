@@ -119,7 +119,25 @@ that gives us the access of req.files in the controller
 # Login building Registe controller
 
 # How to use postman
+How to use the postman for the Backend:-
 
+=>   First verify that register functionality is working or not
+
+=> Use the form data if we have file need to upload other wise use json
+ object type data in postman
+
+=> In postman environment we can set the variable and give them a 
+Values
+=> After that we can link that variable with the collection by selecting the 
+Environment in the right side in the postman
+=>
+For example i have 
+Set the variable in the environment
+ Server:- localhost//8080
+Use them in the collection
+Like
+Wherever we needed that variable 
+{{server}}
 
 # thunder client 
 vs code extension to hit the api's
