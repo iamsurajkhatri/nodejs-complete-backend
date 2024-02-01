@@ -139,5 +139,11 @@ Like
 Wherever we needed that variable 
 {{server}}
 
+
+# Access Refresh Token, Middleware and cookies in Backend
+Access token:- Access token are expird in short duration whereas refresh token are expired in long duration
+Refresh token:- generallay we save in db and sent to user as well
+
+
 # thunder client 
 vs code extension to hit the api's
