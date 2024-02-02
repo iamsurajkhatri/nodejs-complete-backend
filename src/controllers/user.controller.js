@@ -1,6 +1,6 @@
 import { User } from "../models/user.model.js";
 import { uploadOnCloudnary } from '../utils/cloudinary.js'
-
+import  Jwt  from "jsonwebtoken";
 const  generateAccessAndAccessToken = async (userId) =>{
     try{
   const user = await User.findById(userId);
@@ -100,7 +100,6 @@ const logOutUser = async (req,res) => {
     
     //Steps:- clear the cookie, reset the refresh token as well
     await User.findByIdAndUpdate(req.user._id, {$set:{refreshToken:undefined}})
-
     const options = {
         httpOnly:true,
         secure:true
@@ -109,4 +108,32 @@ const logOutUser = async (req,res) => {
       .json({ message:"User logged Out successfully"})
 
 }
-export { registerUser,loginUser, logOutUser }
+
+const refreshAccessToken = async (req,res) => {
+  try {
+     const incomingRefreshToken =  req.cookies.refreshToken || req.body.refreshToken
+     if(!incomingRefreshToken) {
+      return res.status(404).json({Message:"unauthorized Request"});
+     }
+    const decodedToken =  Jwt.verify(incomingRefreshToken, process.env.refreshAccessToken)
+     const user = await User.findById(decodedToken?._id);
+     if(!user) {
+      return res.status(404).json({Message:"invalid refresh token"});
+     }
+     if(incomingRefreshToken!== user?.refreshToken ) {
+      return res.status(404).json({Message:"Refresh token is used or expired"});
+     }
+     const options = {
+          httpOnly:true,
+          secure:true
+     }
+     const { accessToken, newrefreshToken } = await generateAccessAndAccessToken(user._id)
+     return res.status(200).cookie("accessToken", accessToken).cookie("refreshToken", newrefreshToken)
+     .json({accessToken, newrefreshToken, message:"access token refreshed successfully"})
+  } catch (error) {
+    console.log('error', error)
+    return res.status(404).json({Message:"invalid access token"});
+  }
+
+}
+export { registerUser,loginUser, logOutUser,refreshAccessToken }

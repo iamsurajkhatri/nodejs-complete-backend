@@ -140,11 +140,13 @@ Wherever we needed that variable
 {{server}}
 
 
-# Access Refresh Token, Middleware and cookies in Backend
+# Access,Refresh Token, Middleware and cookies in Backend
 Access token:- Access token are expird in short duration whereas refresh token are expired in long duration
 Refresh token:- generallay we save in db and sent to user as well
 
 Cookie:- any one can modify the cookies from frontend when we set http only and set secure true then cookies can be modifed from server only
+
+note:- in frontend when we get the 404 when our access token expires then we hit the api again(refresh token api) with refresh token and verify that token in db if found then will get new access token
 
 # thunder client 
 vs code extension to hit the api's
