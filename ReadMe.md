@@ -144,6 +144,7 @@ Wherever we needed that variable
 Access token:- Access token are expird in short duration whereas refresh token are expired in long duration
 Refresh token:- generallay we save in db and sent to user as well
 
+Cookie:- any one can modify the cookies from frontend when we set http only and set secure true then cookies can be modifed from server only
 
 # thunder client 
 vs code extension to hit the api's

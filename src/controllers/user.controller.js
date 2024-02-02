@@ -83,9 +83,30 @@ const loginUser = async(req,res)=>{
   //send cookies as response
   //Cookie:- any one can modify the cookies from frontend when we set http only and set secure true then cookies can be modifed from server only
   const options = {
-
+    httpOnly:true,
+    secure:true
   }
-   
+  //send resposne
+  //send response and also send access and refresh token as well so that if user want to use the refresh token or 
+  //access token then he can use that
+  res.status(200).cookie("accessToken",accessToken,options).cookie('refreshToken', refreshToken, options)
+  .json({user:loggedInUser, accessToken, refreshToken, message:"User logged in successfully"})
 
 }
-export { registerUser,loginUser }
+
+//logout user
+
+const logOutUser = async (req,res) => {
+    
+    //Steps:- clear the cookie, reset the refresh token as well
+    await User.findByIdAndUpdate(req.user._id, {$set:{refreshToken:undefined}})
+
+    const options = {
+        httpOnly:true,
+        secure:true
+      }
+      res.status(200).clearCookie("accessToken",options).clearCookie('refreshToken',options)
+      .json({ message:"User logged Out successfully"})
+
+}
+export { registerUser,loginUser, logOutUser }
